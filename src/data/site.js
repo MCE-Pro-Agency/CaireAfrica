@@ -1,30 +1,42 @@
 // Informations globales du site — un seul endroit à modifier.
 export const site = {
-  name: 'Chef Kara',
-  url: 'https://www.lechefkara.com',
-  phoneDisplay: '07 69 65 35 12',
-  phoneHref: 'tel:+33769653512',
-  email: 'sowmodoukara@gmail.com',
-  whatsapp: 'https://wa.me/33769653512',
-  stats: { years: 9, rating: '4,49', services: 296 },
+  name: 'CAIREAFRICA',
+  baseline: 'Architecture · Ingénierie',
+  address: 'Rue MZ 134, Mermoz, Dakar',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Rue+MZ+134+Mermoz+Dakar',
+
+  // Bureau de Dakar (source : brochure CAIREAFRICA 06/2026)
+  phoneDisplay: '+221 78 462 26 26',
+  phoneHref: 'tel:+221784622626',
+  // À CONFIRMER : la brochure indique info@caire.africa, le cahier des charges info@caire.africa.it
+  email: 'info@caire.africa',
+
+  // Contact direct (numéro italien — appel ou WhatsApp)
+  contactPerson: 'Antonio Armaroli',
+  contactPhoneDisplay: '+39 335 626 9505',
+  contactPhoneHref: 'tel:+393356269505',
+  whatsapp: 'https://wa.me/393356269505',
+
+  parent: { name: 'CAIREPRO', href: 'https://www.cairepro.it/fr/' },
+
+  // Réseaux sociaux : renseigner les URL ; une entrée sans href n'est pas affichée.
   socials: [
-    { label: 'Take a Chef', href: 'https://www.takeachef.com/fr-fr/chef/modou-kara-sow' },
-    { label: 'Instagram', href: 'https://www.instagram.com/chef_karaaa' },
-    { label: 'GetChef', href: 'https://www.getchef.fr/' },
-    { label: 'Barnes', href: 'https://www.barnes-paris.com/' },
-    { label: 'Private Chef Manager', href: 'https://www.privatechefmanager.com' },
+    { label: 'CAIREPRO', href: 'https://www.cairepro.it/fr/' },
+    { label: 'LinkedIn', href: '' },
+    { label: 'Instagram', href: '' },
+    { label: 'Facebook', href: '' },
+    { label: 'TikTok', href: '' },
   ],
-  cities: ['Paris', 'Nantes', 'Bordeaux', 'Cannes', 'Lyon', 'Marseille'],
 }
 
-// Navigation principale (les libellés viennent de i18n : nav.<key>)
+// Navigation principale (libellés dans i18n : nav.<key>)
 export const navigation = [
   { key: 'home', to: '/' },
-  { key: 'services', to: '/prestations' },
-  { key: 'menu', to: '/menu' },
-  { key: 'chef', to: '/chef' },
-  { key: 'gallery', to: '/galerie' },
-  { key: 'contact', to: '/contact' },
+  { key: 'about', to: '/a-propos' },
+  { key: 'expertise', to: '/expertises' },
+  { key: 'projects', to: '/projets' },
+  { key: 'team', to: '/equipe' },
+  { key: 'news', to: '/actualites' },
 ]
 
 export function whatsappLink(message) {

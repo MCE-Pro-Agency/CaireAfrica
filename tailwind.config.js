@@ -7,6 +7,8 @@ export default {
         ink: '#0E0E0E', // fond principal
         coal: '#161616', // surfaces (cartes, modales)
         ivory: '#F3F1EC', // texte principal
+                // Couleurs du logo CAIREAFRICA (accents uniquement)
+        brand: { red: '#CD1719', yellow: '#FAB40E', green: '#399336' },
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', '"Times New Roman"', 'serif'],

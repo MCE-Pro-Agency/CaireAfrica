@@ -5,11 +5,9 @@ import Footer from './Footer'
 import WhatsAppButton from './WhatsAppButton'
 import CookieBanner from './CookieBanner'
 
-// Remonte en haut à chaque changement de page, ou va à l'ancre (#domicile…).
-// Le détail d'un menu (/menu/:slug) s'ouvre par-dessus la liste : pas de saut.
+// Remonte en haut à chaque changement de page, ou va à l'ancre (#expertises…).
 function ScrollManager() {
   const { pathname, hash } = useLocation()
-  const section = pathname.startsWith('/menu') ? '/menu' : pathname
 
   useEffect(() => {
     if (hash) {
@@ -20,7 +18,7 @@ function ScrollManager() {
       }
     }
     window.scrollTo(0, 0)
-  }, [section, hash])
+  }, [pathname, hash])
 
   return null
 }

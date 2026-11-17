@@ -1,23 +1,20 @@
 import { Route, Routes } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
-import Prestations from './pages/Prestations'
-import Menu from './pages/Menu'
-import Chef from './pages/Chef'
-import Gallery from './pages/Gallery'
+import ComingSoon from './pages/ComingSoon'
 import Contact from './pages/Contact'
 import Legal from './pages/Legal'
 import Cookies from './pages/Cookies'
 import NotFound from './pages/NotFound'
 
-// Plan du site
+// Plan du site (arborescence du cahier des charges)
 //   /                   Accueil
-//   /prestations        Les trois prestations (ancres #domicile #evenements #partout)
-//   /menu               Les huit cartes
-//   /menu/:slug         Détail d'une carte (fenêtre par-dessus la liste, URL partageable)
-//   /chef               Le chef
-//   /galerie            Photos & vidéos
-//   /contact            Formulaire de réservation (?menu=slug pour pré-remplir)
+//   /a-propos           À propos / Qui sommes-nous      (à construire)
+//   /expertises         Expertises / Services           (à construire)
+//   /projets            Projets / Références            (à construire)
+//   /equipe             Équipe / Contacts clés          (à construire)
+//   /actualites         Actualités (Instagram)          (à construire)
+//   /contact            Coordonnées + formulaire
 //   /mentions-legales   Mentions légales
 //   /cookies            Cookies
 export default function App() {
@@ -25,11 +22,11 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="prestations" element={<Prestations />} />
-        <Route path="menu" element={<Menu />} />
-        <Route path="menu/:slug" element={<Menu />} />
-        <Route path="chef" element={<Chef />} />
-        <Route path="galerie" element={<Gallery />} />
+        <Route path="a-propos" element={<ComingSoon section="about" />} />
+        <Route path="expertises" element={<ComingSoon section="expertise" />} />
+        <Route path="projets" element={<ComingSoon section="projects" />} />
+        <Route path="equipe" element={<ComingSoon section="team" />} />
+        <Route path="actualites" element={<ComingSoon section="news" />} />
         <Route path="contact" element={<Contact />} />
         <Route path="mentions-legales" element={<Legal />} />
         <Route path="cookies" element={<Cookies />} />

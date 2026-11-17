@@ -41,11 +41,11 @@ export default function Header() {
     >
       <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between gap-6 px-6 md:px-10">
         <Link to="/" aria-label={t('nav.homeAria')} className="flex shrink-0 items-center gap-3 whitespace-nowrap">
-          <Logo className="h-8 w-8" />
-          <span className="font-serif text-lg tracking-[0.3em]">CHEF KARA</span>
+          <Logo variant="mark" className="h-9 w-auto" />
+          <span className="text-base font-medium tracking-[0.18em]">CAIREAFRICA</span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Navigation principale">
+        <nav className="hidden items-center gap-6 lg:flex xl:gap-7" aria-label="Navigation principale">
           {navigation.map((item) => (
             <NavLink key={item.key} to={item.to} end={item.to === '/'} className={linkClass}>
               {t(`nav.${item.key}`)}
@@ -63,7 +63,7 @@ export default function Header() {
             {lang === 'fr' ? 'EN' : 'FR'}
           </button>
           <Link to="/contact" className="btn-solid hidden whitespace-nowrap xl:inline-flex">
-            {t('cta.project')}
+            {t('cta.contact')}
           </Link>
           <button
             type="button"
@@ -93,7 +93,7 @@ export default function Header() {
               </NavLink>
             ))}
             <Link to="/contact" className="btn-solid mt-4 self-start">
-              {t('cta.project')}
+              {t('cta.contact')}
             </Link>
           </div>
         </nav>

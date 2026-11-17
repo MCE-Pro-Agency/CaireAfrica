@@ -3,8 +3,8 @@ import fr from './fr'
 import en from './en'
 
 const dictionaries = { fr, en }
-const LANG_KEY = 'chefkara-lang'
-const CONSENT_KEY = 'chefkara-consent' // 'accepted' | 'refused'
+const LANG_KEY = 'caireafrica-lang'
+const CONSENT_KEY = 'caireafrica-consent' // 'accepted' | 'refused'
 
 const LanguageContext = createContext(null)
 
