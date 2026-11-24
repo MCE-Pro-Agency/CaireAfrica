@@ -41,11 +41,12 @@
   .btn {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.2em] transition-colors duration-300;
   }
+  /* Tous les boutons : fond jaune très clair (comme header/footer), texte noir, jaune logo au survol */
   .btn-solid {
-    @apply btn bg-ivory text-ink hover:bg-white;
+    @apply btn bg-[#FFF4DB] text-ink hover:bg-brand-yellow;
   }
   .btn-ghost {
-    @apply btn border border-ivory/30 text-ivory hover:border-ivory hover:bg-ivory hover:text-ink;
+    @apply btn border border-[#FFF4DB] bg-[#FFF4DB] text-ink hover:border-brand-yellow hover:bg-brand-yellow;
   }
   .link-line {
     @apply border-b border-ivory/40 pb-1 text-[11px] uppercase tracking-[0.2em] transition-colors hover:border-ivory;
@@ -56,6 +57,60 @@
   .field-label {
     @apply mb-1 block text-[11px] uppercase tracking-[0.2em] text-ivory/60;
   }
+
+  /* Sections claires : fond ivoire du logo, texte noir */
+  .theme-light {
+    @apply bg-ivory text-ink;
+  }
+  .theme-light .lead {
+    @apply text-ink;
+  }
+  .theme-light .body-text {
+    @apply text-ink/75;
+  }
+  .theme-light .eyebrow {
+    @apply text-brand-red;
+  }
+  .theme-light .link-line {
+    @apply border-ink/40 text-ink hover:border-brand-red hover:text-brand-red;
+  }
+  .theme-light .btn-ghost,
+  .theme-light .btn-solid {
+    @apply border border-ink/15;
+  }
+
+  /* Section jaune du logo : texte noir, boutons noirs au survol */
+  .theme-yellow {
+    @apply bg-brand-yellow text-ink;
+  }
+  .theme-yellow .body-text {
+    @apply text-ink/80;
+  }
+  .theme-yellow .btn-solid,
+  .theme-yellow .btn-ghost {
+    @apply hover:border-ink hover:bg-ink hover:text-ivory;
+  }
+
+  /* Header et footer : jaune très clair, texte noir */
+  .theme-yellow-light {
+    @apply bg-[#FFF4DB] text-ink;
+  }
+  .theme-yellow-light .eyebrow {
+    @apply text-ink/60;
+  }
+  .theme-yellow-light .link-line {
+    @apply border-ink/30 text-ink hover:border-brand-red hover:text-brand-red;
+  }
+  /* Bouton du header/footer : noir, sinon il disparaîtrait sur le fond jaune clair */
+  .theme-yellow-light .btn-solid {
+    @apply bg-ink text-ivory hover:bg-brand-yellow hover:text-ink;
+  }
+
+  /* Filet tricolore rouge / jaune / vert, repris du logo */
+  .brand-rule {
+    @apply flex h-[3px] w-24;
+  }
+
   /* Bloc de remplacement tant qu'une image n'est pas fournie */
   .placeholder {
     @apply flex items-end bg-gradient-to-br from-[#1d1b18] via-coal to-[#2a2622] p-4;

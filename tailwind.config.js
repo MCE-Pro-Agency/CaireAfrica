@@ -7,8 +7,16 @@ export default {
         ink: '#0E0E0E', // fond principal
         coal: '#161616', // surfaces (cartes, modales)
         ivory: '#F3F1EC', // texte principal
-                // Couleurs du logo CAIREAFRICA (accents uniquement)
-        brand: { red: '#CD1719', yellow: '#FAB40E', green: '#399336' },
+        // Charte graphique du logo CAIREAFRICA
+        'brand-red': '#CD1719',
+        'brand-yellow': '#FAB40E',
+        'brand-green': '#3A9437',
+        'yellow-light': '#FFF4DB', // jaune très clair : header + footer
+        // Couleurs utilisées dans Home.jsx
+        sand: '#F3ECE0',
+        forest: '#17342A',
+        clay: '#A8432A',
+        char: '#1D1915',
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', '"Times New Roman"', 'serif'],
