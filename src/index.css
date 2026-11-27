@@ -58,6 +58,14 @@
     @apply mb-1 block text-[11px] uppercase tracking-[0.2em] text-ivory/60;
   }
 
+  /* Titres de section (hors bandeaux) : centrés, sur une seule ligne à partir de l'ordinateur */
+  .section-title {
+    @apply mx-auto text-center font-display text-3xl font-extrabold leading-tight md:text-4xl lg:whitespace-nowrap lg:text-[2.6rem];
+  }
+  .section-title em {
+    @apply font-semibold;
+  }
+
   /* Sections claires : fond ivoire du logo, texte noir */
   .theme-light {
     @apply bg-ivory text-ink;
@@ -130,4 +138,57 @@
     animation: none !important;
     transition: none !important;
   }
+}
+/* Carte des liaisons (page Expertises) */
+.nm-arc {
+  opacity: 0;
+  animation: nm-in 1s ease forwards, nm-dash 1.6s linear infinite;
+}
+.nm-ring {
+  animation: nm-pulse 2.6s ease-out infinite;
+}
+.nm-tag {
+  opacity: 0;
+  animation: nm-in 0.8s ease forwards;
+}
+@keyframes nm-in {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes nm-dash {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+@keyframes nm-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nm-arc,
+  .nm-tag {
+    opacity: 1;
+  }
+}
+/* Barre de défilement de la fiche projet (fenêtre de détail) */
+.modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #fab40e rgba(243, 241, 236, 0.08);
+}
+.modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-scroll::-webkit-scrollbar-track {
+  background: rgba(243, 241, 236, 0.06);
+}
+.modal-scroll::-webkit-scrollbar-thumb {
+  background: #fab40e;
+  border-radius: 999px;
 }

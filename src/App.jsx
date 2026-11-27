@@ -1,6 +1,9 @@
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
+import About from './pages/About'
+import Expertises from './pages/Expertises'
+import Projects from './pages/Projects'
 import ComingSoon from './pages/ComingSoon'
 import Contact from './pages/Contact'
 import Legal from './pages/Legal'
@@ -22,10 +25,10 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="a-propos" element={<ComingSoon section="about" />} />
-        <Route path="expertises" element={<ComingSoon section="expertise" />} />
-        <Route path="projets" element={<ComingSoon section="projects" />} />
-        <Route path="equipe" element={<ComingSoon section="team" />} />
+        <Route path="a-propos" element={<About />} />
+        <Route path="expertises" element={<Expertises />} />
+        <Route path="projets" element={<Projects />} />
+        <Route path="equipe" element={<Navigate to="/a-propos#equipe" replace />} />
         <Route path="actualites" element={<ComingSoon section="news" />} />
         <Route path="contact" element={<Contact />} />
         <Route path="mentions-legales" element={<Legal />} />

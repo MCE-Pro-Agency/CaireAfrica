@@ -42,7 +42,7 @@ export default {
     aboutImageAlt: 'L’équipe CAIREAFRICA',
 
     // 4. Chiffres clés
-    figuresEyebrow: 'Chiffres clés',
+    
     figuresLead: 'La solidité de l’expérience en chiffres.',
     figures: [
       { value: '1947', label: 'Fondation de CAIREPRO' },

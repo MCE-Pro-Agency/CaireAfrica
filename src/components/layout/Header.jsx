@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { navigation } from '../../data/site'
 import { useLanguage } from '../../i18n/LanguageContext'
 import Logo from '../ui/Logo'
@@ -7,7 +7,7 @@ import Logo from '../ui/Logo'
 // En-tête : fond jaune très clair (version claire du jaune du logo), texte noir
 export default function Header() {
   const { t, lang, toggle } = useLanguage()
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -19,7 +19,7 @@ export default function Header() {
   }, [])
 
   // Ferme le menu mobile à chaque navigation
-  useEffect(() => setOpen(false), [pathname])
+  useEffect(() => setOpen(false), [pathname, hash])
 
   // Bloque le défilement de la page quand le menu mobile est ouvert
   useEffect(() => {
@@ -29,8 +29,30 @@ export default function Header() {
     }
   }, [open])
 
+  // Lien actif. Un lien peut viser une section d'une page (ex. /a-propos#equipe) :
+  // il est actif quand l'adresse correspond, et le lien de la page seule ne l'est alors plus.
+  const anchorActive = (to) => {
+    const [path, anchor] = to.split('#')
+    return Boolean(anchor) && pathname === path && hash === `#${anchor}`
+  }
+  const isActive = (to) => {
+    const [path, anchor] = to.split('#')
+    if (anchor) return anchorActive(to)
+    const onPage = path === '/' ? pathname === '/' : pathname.startsWith(path)
+    return onPage && !navigation.some((item) => item.to.startsWith(`${path}#`) && anchorActive(item.to))
+  }
+
+  // Lien vers la section déjà affichée : on y redéfile quand même
+  const onNavClick = (to) => () => {
+    const [path, anchor] = to.split('#')
+    if (anchor && pathname === path && hash === `#${anchor}`) {
+      document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth' })
+    }
+    setOpen(false)
+  }
+
   // Lien actif souligné en rouge logo
-  const linkClass = ({ isActive }) =>
+  const linkClass = (isActive) =>
     `whitespace-nowrap border-b-2 pb-1 text-[11px] uppercase tracking-[0.2em] transition-colors hover:text-ink ${
       isActive ? 'border-brand-red text-ink' : 'border-transparent text-ink/70'
     }`
@@ -49,9 +71,9 @@ export default function Header() {
 
         <nav className="hidden items-center gap-6 lg:flex xl:gap-7" aria-label="Navigation principale">
           {navigation.map((item) => (
-            <NavLink key={item.key} to={item.to} end={item.to === '/'} className={linkClass}>
+            <Link key={item.key} to={item.to} onClick={onNavClick(item.to)} className={linkClass(isActive(item.to))} aria-current={isActive(item.to) ? 'page' : undefined}>
               {t(`nav.${item.key}`)}
-            </NavLink>
+            </Link>
           ))}
         </nav>
 
@@ -88,14 +110,14 @@ export default function Header() {
         >
           <div className="container-x flex flex-col gap-6 py-10">
             {navigation.map((item) => (
-              <NavLink
+              <Link
                 key={item.key}
                 to={item.to}
-                end={item.to === '/'}
-                className={({ isActive }) => `font-serif text-3xl ${isActive ? 'text-brand-red' : 'text-ink/70'}`}
+                onClick={onNavClick(item.to)}
+                className={`font-serif text-3xl ${isActive(item.to) ? 'text-brand-red' : 'text-ink/70'}`}
               >
                 {t(`nav.${item.key}`)}
-              </NavLink>
+              </Link>
             ))}
             <Link to="/contact" className="btn-solid mt-4 self-start">
               {t('cta.contact')}

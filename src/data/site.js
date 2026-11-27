@@ -30,12 +30,12 @@ export const site = {
 }
 
 // Navigation principale (libellés dans i18n : nav.<key>)
+// L'équipe est présentée sur la page À propos (plus d'entrée « Équipe » dans le menu).
 export const navigation = [
   { key: 'home', to: '/' },
   { key: 'about', to: '/a-propos' },
   { key: 'expertise', to: '/expertises' },
   { key: 'projects', to: '/projets' },
-  { key: 'team', to: '/equipe' },
   { key: 'news', to: '/actualites' },
 ]
 

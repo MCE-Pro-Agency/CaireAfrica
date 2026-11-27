@@ -20,6 +20,7 @@ export default {
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', 'Georgia', '"Times New Roman"', 'serif'],
+        display: ['"Playfair Display"', 'Georgia', 'serif'], // titres du hero 3D
         sans: ['Jost', 'ui-sans-serif', 'system-ui', '-apple-system', '"Helvetica Neue"', 'Arial', 'sans-serif'],
       },
       keyframes: {
